@@ -1,0 +1,98 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/media.scss";
+
+header {
+  background-color: $c-white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// * navigation
+.navigation {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+
+  @include media("<=desktop") {
+    justify-content: center;
+    margin-right: 0;
+  }
+}
+
+.list {
+  display: flex;
+
+  @include media("<=desktop") {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.item {
+  margin-right: 40px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include media("<=desktop") {
+    margin-right: 0;
+  }
+}
+
+.link {
+  font-family: $ff-poppins;
+  font-weight: 400;
+  font-size: em(12);
+  line-height: 22px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $c-light-grey;
+  cursor: pointer;
+  transition: color $t-normal;
+
+  &:hover {
+    color: $c-red;
+  }
+}
+
+.block {
+  display: flex;
+
+  @include media("<=desktop") {
+    background-color: $c-white;
+    padding-top: 100px;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+}
+
+.line {
+  margin-right: 20px;
+  width: 1px;
+  height: 40px;
+  background: $c-grey;
+  transform: rotateX("45deg");
+
+  @include media("<=desktop") {
+    display: none;
+  }
+}

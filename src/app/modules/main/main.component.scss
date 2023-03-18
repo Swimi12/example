@@ -1,0 +1,139 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+@import "../../../styles/media.scss";
+
+section {
+  background-color: $c-silver;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include media("<=phone") {
+    padding-top: 0px;
+    margin-bottom: 60px;
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 35px;
+  @include media("<=screen") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media("<=tablet") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media("<=phone") {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+h2 {
+  font-weight: 500;
+  font-size: em(16);
+  line-height: 26px;
+  color: $c-light-grey;
+  border-bottom: 1px solid $c-red;
+}
+
+span {
+  font-weight: 500;
+  line-height: 26px;
+  text-align: center;
+  color: $c-black;
+
+  @include media("<=phone") {
+    font-size: em(20);
+  }
+}
+
+.card {
+  align-items: center;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid $c-grey;
+  padding-bottom: 20px;
+  border-left: 1px solid $c-grey;
+  transition: opacity $t-normal;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @include media(">=screen") {
+    &:nth-child(4n) {
+      border-right: 1px solid $c-grey;
+    }
+
+    &:last-child {
+      border-right: 1px solid $c-grey;
+    }
+  }
+
+  @include media("<=screen") {
+    &:nth-child(3n) {
+      border-right: 1px solid $c-grey;
+    }
+
+    &:last-child {
+      border-right: 1px solid $c-grey;
+    }
+  }
+
+  @include media("<=tablet") {
+    &:nth-child(2n) {
+      border-right: 1px solid $c-grey;
+    }
+
+    &:last-child {
+      border-right: 1px solid $c-grey;
+    }
+  }
+
+  @include media("<=phone") {
+    &:nth-child(1n) {
+      border-right: 1px solid $c-grey;
+    }
+
+    &:last-child {
+      border-right: 1px solid $c-grey;
+    }
+  }
+}
+
+input {
+  margin-top: 5px;
+  max-width: 400px;
+  width: 100%;
+  height: 40px;
+  background: $c-white;
+  border: 1px solid $c-light-grey;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 400;
+  font-size: em(14);
+  line-height: 20px;
+  outline: none;
+  transition: opacity $t-normal;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:focus {
+    border: 1px solid $c-red;
+  }
+
+  &::placeholder {
+    color: $c-light-grey;
+  }
+}

@@ -1,0 +1,174 @@
+<section>
+  <div class="wrapper">
+    <form [formGroup]="form" class="form">
+      <div class="head">
+        <h2>Regestration</h2>
+      </div>
+      <!-- First name -->
+      <label class="item">
+        <span>First name</span>
+        <input
+          [type]="InputTypes.TEXT"
+          formControlName="firstName"
+          [class.valid]="isControlValid('firstName')"
+          [class.invalid]="isControlInvalid('firstName')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('firstName')">
+            <ng-container
+              *ngIf="form.controls['firstName']?.hasError('required')"
+              >Це поле обов`язкове</ng-container
+            >
+            <ng-container
+              *ngIf="form.controls['firstName']?.hasError('minlength')"
+              >Мінімальна довжина імені -
+              {{
+              form.controls['firstName'].errors?.['minlength']?.requiredLength}}</ng-container
+            >
+          </ng-container>
+        </div>
+      </label>
+      <!-- Last name -->
+      <label class="item">
+        <span>Last name</span>
+        <input
+          [type]="InputTypes.TEXT"
+          formControlName="lastName"
+          [class.valid]="isControlValid('lastName')"
+          [class.invalid]="isControlInvalid('lastName')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('lastName')">
+            <ng-container
+              *ngIf="form.controls['lastName']?.hasError('required')"
+              >Це поле обов`язкове</ng-container
+            >
+            <ng-container
+              *ngIf="form.controls['lastName']?.hasError('minlength')"
+              >Мінімальна довжина імені -
+              {{
+              form.controls['lastName'].errors?.['minlength']?.requiredLength}}</ng-container
+            >
+          </ng-container>
+        </div>
+      </label>
+      <!-- Email -->
+      <label class="item">
+        <span>Email</span>
+        <input
+          [type]="InputTypes.EMAIL"
+          formControlName="email"
+          [class.valid]="isControlValid('email')"
+          [class.invalid]="isControlInvalid('email')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('email')">
+            <ng-container *ngIf="form.controls['email']?.hasError('required')"
+              >Це поле обов`язкове</ng-container
+            >
+            <ng-container *ngIf="form.controls['email']?.hasError('email')"
+              >Введіть правильні символи</ng-container
+            >
+          </ng-container>
+        </div>
+      </label>
+      <!-- Password -->
+      <label class="item">
+        <span>Password</span>
+        <input
+          [type]="InputTypes.PASSWORD"
+          formControlName="password"
+          [class.valid]="isControlValid('password')"
+          [class.invalid]="isControlInvalid('password')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('password')">
+            <ng-container
+              *ngIf="form.controls['password']?.hasError('required')"
+              >Це поле обов`язкове</ng-container
+            >
+            <ng-container
+              *ngIf="form.controls['password']?.hasError('minlength')"
+              >Мінімальна довжина -
+              {{
+              form.controls['password'].errors?.['minlength']?.requiredLength}}</ng-container
+            >
+          </ng-container>
+        </div>
+        <div class="patternValidator-error">
+          <p *ngIf="form.controls['password'].hasError('hasNumber')">
+            Пароль має мати цифру
+          </p>
+          <p *ngIf="form.controls['password'].hasError('hasWord')">
+            Пароль має мати букву
+          </p>
+          <p *ngIf="form.controls['password'].hasError('hasSpecialCharacters')">
+            Пароль має мати спеціальни символ
+          </p>
+        </div>
+      </label>
+      <!-- Username -->
+      <label class="item">
+        <span>Username</span>
+        <input
+          [type]="InputTypes.TEXT"
+          formControlName="username"
+          [class.valid]="isControlValid('username')"
+          [class.invalid]="isControlInvalid('username')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('username')">
+            <ng-container
+              *ngIf="form.controls['username']?.hasError('required')"
+              >Це поле обов`язкове</ng-container
+            >
+            <ng-container
+              *ngIf="form.controls['username']?.hasError('minlength')"
+              >Мінімал ьна довжина імені -
+              {{
+            form.controls['username'].errors?.['minlength']?.requiredLength}}</ng-container
+            >
+          </ng-container>
+        </div>
+      </label>
+
+      <!-- From Array -->
+
+      <label formArrayName="phones" class="item">
+        <div
+          class="form-group"
+          *ngFor="let lesson of phones.controls; let i = index"
+        >
+          <span>Phone</span>
+
+          <input
+            [type]="InputTypes.TEXT"
+            [class.valid]="isControlValid('phones')"
+            [class.invalid]="isControlInvalid('phones')"
+            [formControlName]="i"
+            maxlength="12"
+          />
+          <button class="button button-form" (click)="deletePhone(i)">
+            Delete
+          </button>
+        </div>
+        <div>
+          <button class="button button-phone" (click)="addPhone()">
+            Add phone
+          </button>
+        </div>
+      </label>
+
+      <div class="form-footer">
+        <button
+          type="submit"
+          class="button button-phone"
+          (click)="loading ? null : submit()"
+        >
+          Registration
+          <span *ngIf="loading"></span>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

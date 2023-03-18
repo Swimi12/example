@@ -1,0 +1,116 @@
+<section>
+  <div class="wrapper">
+    <!-- <a class="button" routerLink="/admin/dasboard">Back</a> -->
+    <form [formGroup]="form">
+      <!-- Name items -->
+      <label>
+        <input
+          [type]="InputTypes.TEXT"
+          formControlName="nameUa"
+          placeholder="Enter name - UA"
+          [class.valid]="isControlValid('nameUa')"
+          [class.invalid]="isControlInvalid('nameUa')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('nameUa')">
+            <ng-container *ngIf="form.controls['nameUa']?.hasError('required')"
+              >This field is required</ng-container
+            >
+          </ng-container>
+        </div> </label
+      ><label>
+        <input
+          [type]="InputTypes.TEXT"
+          formControlName="nameEn"
+          placeholder="Enter name - EN"
+          [class.valid]="isControlValid('nameEn')"
+          [class.invalid]="isControlInvalid('nameEn')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('nameEn')">
+            <ng-container *ngIf="form.controls['nameEn']?.hasError('required')"
+              >This field is required</ng-container
+            >
+          </ng-container>
+        </div>
+      </label>
+      <!-- Price -->
+      <label>
+        <input
+          [type]="InputTypes.NUMBER"
+          formControlName="price"
+          placeholder="Enter price"
+          [class.valid]="isControlValid('price')"
+          [class.invalid]="isControlInvalid('price')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('price')">
+            <ng-container *ngIf="form.controls['price']?.hasError('required')"
+              >This field is required</ng-container
+            >
+          </ng-container>
+        </div>
+      </label>
+      <!-- Amount -->
+      <label>
+        <input
+          [type]="InputTypes.NUMBER"
+          formControlName="amount"
+          placeholder="Enter amount"
+          [class.valid]="isControlValid('amount')"
+          [class.invalid]="isControlInvalid('amount')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('amount')">
+            <ng-container *ngIf="form.controls['amount']?.hasError('required')"
+              >This field is required</ng-container
+            >
+          </ng-container>
+        </div>
+      </label>
+      <!-- Description -->
+      <label>
+        <input
+          [type]="InputTypes.TEXT"
+          formControlName="descriptionUa"
+          placeholder="Enter description - UA"
+          [class.valid]="isControlValid('descriptionUa')"
+          [class.invalid]="isControlInvalid('descriptionUa')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('descriptionUa')">
+            <ng-container
+              *ngIf="form.controls['descriptionUa']?.hasError('required')"
+              >This field is required</ng-container
+            >
+          </ng-container>
+        </div>
+      </label>
+      <label>
+        <input
+          [type]="InputTypes.TEXT"
+          formControlName="descriptionEn"
+          placeholder="Enter description - EN"
+          [class.valid]="isControlValid('descriptionEn')"
+          [class.invalid]="isControlInvalid('descriptionEn')"
+        />
+        <div class="error">
+          <ng-container *ngIf="isControlInvalid('descriptionEn')">
+            <ng-container
+              *ngIf="form.controls['descriptionEn']?.hasError('required')"
+              >This field is required</ng-container
+            >
+          </ng-container>
+        </div>
+      </label>
+      <!-- Button submit -->
+      <button
+        class="button button-black"
+        type="submit"
+        (click)="loading ? null : submit()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</section>

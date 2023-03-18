@@ -1,0 +1,39 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/media.scss";
+
+button {
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  z-index: 300;
+}
+
+span {
+  background-color: $c-black;
+  transition: transform $t-normal;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  display: block;
+  width: 34px;
+  height: 4px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.open span {
+  &:first-child {
+    transform: translateY(11px) rotate(45deg);
+  }
+
+  &:nth-child(2) {
+    opacity: 0;
+  }
+
+  &:last-child {
+    transform: translateY(-12px) rotate(-45deg);
+  }
+}

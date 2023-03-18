@@ -1,0 +1,74 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/media.scss";
+
+header {
+  background-color: $c-red;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.header-wrapper {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// * navigation
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+}
+
+.item {
+  margin-right: 40px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.link {
+  font-family: $ff-poppins;
+  font-weight: 400;
+  font-size: em(12);
+  line-height: 22px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color $t-normal;
+  transition: background-color $t-normal;
+  padding: 5px;
+  border-radius: 5px;
+
+  &:hover {
+    color: $c-red;
+    background-color: $c-white;
+  }
+}
+
+.block {
+  display: flex;
+}
+
+.line {
+  margin-right: 20px;
+  width: 1px;
+  height: 40px;
+  background: $c-grey;
+  transform: rotateX("45deg");
+}
+
+a {
+  color: $c-white;
+}

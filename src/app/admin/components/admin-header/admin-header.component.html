@@ -1,0 +1,22 @@
+<header>
+  <div class="header-wrapper">
+    <div class="logo">
+      <h1><a routerLink="/">Angular Admin</a></h1>
+    </div>
+    <div class="block">
+      <nav class="navigation">
+        <ul class="list">
+          <li class="item">
+            <a class="link" routerLink="/admin/dashboard">home</a>
+          </li>
+          <li class="item">
+            <a class="link" routerLink="/admin/create">create</a>
+          </li>
+          <li class="item">
+            <a class="link" (click)="logout($event)">logout</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

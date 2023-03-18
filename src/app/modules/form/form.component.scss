@@ -1,0 +1,105 @@
+@import "../../../styles/variables.scss";
+
+section {
+  margin-top: 60px;
+}
+
+input {
+  margin-right: 5px;
+  margin-left: 5px;
+  max-width: 500px;
+  height: 40px;
+  background: $c-white;
+  border: 1px solid $c-light-grey;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 400;
+  font-size: em(14);
+  line-height: 20px;
+  outline: none;
+  transition: opacity $t-normal;
+  &:hover {
+    opacity: 0.9;
+  }
+  &:focus {
+    border: 1px solid $c-red;
+  }
+  &::placeholder {
+    color: $c-light-grey;
+  }
+}
+
+h2 {
+  text-align: center;
+  color: $c-black;
+}
+
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.error {
+  height: 20px;
+  color: $c-red;
+  text-align: end;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.valid {
+  border: 1px solid rgb(22, 155, 22);
+}
+
+.invalid {
+  border: 1px solid $c-red;
+}
+
+span {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.button-form {
+  min-width: 70px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.button-phone {
+  min-width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  width: 100%;
+  margin-top: 15px;
+  background-color: $c-grey;
+  color: $c-black;
+}
+
+.form-footer {
+  margin-top: 20px;
+}
+
+.patternValidator-error {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: -250px;
+  display: flex;
+  flex-direction: column;
+  background-color: $c-grey;
+  padding: 5px;
+  border-radius: 5px;
+  color: $c-red;
+}

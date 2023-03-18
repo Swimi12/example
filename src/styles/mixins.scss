@@ -1,0 +1,23 @@
+// For fonts
+@mixin font-face(
+  $fontname,
+  $fontfile,
+  $fontweight: normal,
+  $fontstyle: normal
+) {
+  @font-face {
+    font-family: $fontname;
+    src: url("./assets/fonts/" + $fontfile + ".eot");
+    src: url("./assets/fonts/" + $fontfile + ".eot?#iefix")
+        format("embedded-opentype"),
+      url("./assets/fonts/" + $fontfile + ".woff") format("woff"),
+      url("./assets/fonts/" + $fontfile + ".ttf") format("truetype");
+    font-weight: $fontweight;
+    font-style: $fontstyle;
+  }
+}
+
+// * Generate EM
+@function em($px) {
+  @return calc($px / $fs-base) + em;
+}

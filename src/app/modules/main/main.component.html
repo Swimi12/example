@@ -1,0 +1,22 @@
+<section>
+  <input type="text" placeholder="Search..." [(ngModel)]="searchStr" />
+  <div class="wrapper">
+    <ng-container *ngIf="loading; else elseTemplate">
+      <a
+        class="card"
+        [routerLink]="['/product', item._id]"
+        *ngFor="let item of list | searchProduct : searchStr"
+      >
+        <h2 class="title">{{ item.name.en }}</h2>
+
+        <span>Price: {{ item.price }}</span>
+        <span>Amount: {{ item.amount }}</span>
+      </a>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div class="load">
+        <span>Loading...</span>
+      </div>
+    </ng-template>
+  </div>
+</section>

@@ -1,0 +1,133 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/media.scss";
+
+.wrapper {
+  margin-top: 50px;
+  overflow-x: auto;
+}
+
+.buttons {
+  display: flex;
+}
+
+a {
+  min-width: 125px;
+  margin-right: 10px;
+  height: 50px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.button {
+  @include media("<=phone") {
+    height: 40px;
+    min-width: 70px;
+  }
+}
+
+.button-table {
+  border: none;
+  cursor: pointer;
+  color: $c-white;
+  font-family: $ff-poppins;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: opacity $t-normal;
+  background-color: $c-light-grey;
+  max-width: fit-content;
+  min-width: fit-content;
+  height: fit-content;
+  padding: 5px 5px;
+}
+
+table {
+  min-width: 1000px;
+  width: 100%;
+  border: 0;
+}
+
+th {
+  border-bottom: 2px solid red;
+  padding: 10px 0px;
+
+  &:first-child {
+    text-align: start;
+  }
+
+  &:last-child {
+    text-align: center;
+  }
+}
+
+td {
+  display: table-cell;
+  text-align: center;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  &:first-child {
+    text-align: start;
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+tr {
+  &:last-child {
+    td {
+      border-bottom: none;
+    }
+  }
+}
+
+.message {
+  position: absolute;
+  top: calc(50% - 20px);
+  right: calc(50% - 75px);
+  width: 100%;
+  max-width: 150px;
+  height: 40px;
+  color: $c-red;
+  font-weight: 600;
+  background-color: $c-grey;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  margin-right: 5px;
+  margin-left: 5px;
+  max-width: 500px;
+  height: 40px;
+  background: $c-white;
+  border: 1px solid $c-light-grey;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 400;
+  font-size: em(14);
+  line-height: 20px;
+  outline: none;
+  transition: opacity $t-normal;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:focus {
+    border: 1px solid $c-red;
+  }
+
+  &::placeholder {
+    color: $c-light-grey;
+  }
+}
